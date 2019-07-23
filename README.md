@@ -1,3 +1,41 @@
+# Alleyflix
+
+clone coding Nomflix.
+
+## Screens
+
+- [ ] Home
+- [ ] TV Shows
+- [ ] Search
+- [ ] Detail
+
+<br/>
+
+---
+
+<br/>
+
+### install
+- yarn global add npx
+- npm i npx -g
+- npx create-react-app
+
+### env
+- 불필요한 파일 삭제
+- .env : NODE_PATH 설정
+- npm i prop-types
+
+### Router
+- npm i react-router-dom
+- BrowserRouter
+
+
+<br/> 
+
+---
+
+<br/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
