@@ -9,6 +9,14 @@ clone coding Nomflix.
 - [ ] Search
 - [ ] Detail
 
+## API Verbs
+
+- [ ] Now playing (Movie)
+- [ ] Upcoming (Movie)
+- [ ] Top Rate (TV, Movie)
+- [ ] Popular (TV, Movie)
+- [ ] Airing Today (TV)
+
 <br/>
 
 ---
@@ -28,6 +36,15 @@ clone coding Nomflix.
 ### Router
 - npm i react-router-dom
 - BrowserRouter
+
+### style
+- yarn add styled-component
+- yarn add styled-reset
+
+
+### Networking
+- the movie DB api 체크
+- axios
 
 
 <br/> 
