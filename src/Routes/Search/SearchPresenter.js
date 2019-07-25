@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Loader from 'Components/Loader';
 import Section from "Components/Section";
 import Message from 'Components/Message';
+import Poster from 'Components/Poster';
 
 const Container = styled.div`
 	padding: 0 20px;
@@ -19,15 +20,7 @@ const Input = styled.input`
 	width: 100%;
 `;
 
-const SearchPresenter = ({
-	                         movieResults,
-	                         tvResults,
-	                         searchTerm,
-	                         loading,
-	                         error,
-	                         handleSubmit,
-	                         updateTerm
-                         }) => (
+const SearchPresenter = ({ movieResults, tvResults, searchTerm, loading, error, handleSubmit, updateTerm }) => (
 	<Container>
 		<Form onSubmit={handleSubmit}>
 			<Input placeholder="Search Movies or TV Shows..."
@@ -39,13 +32,32 @@ const SearchPresenter = ({
 			<>
 				{movieResults && movieResults.length > 0 && (
 					<Section title="Movie Results">
-						{movieResults.map(movie => (<span key={movie.id}>{movie.title}</span>))}
+						{movieResults.map(movie => (
+							<Poster
+								key={movie.id}
+								id={movie.id}
+								title={movie.title}
+								mageUrl={movie.poster_path}
+								rating={movie.vote_average}
+								year={movie.release_date.substring(0, 4)}
+								isMovie={true}
+							/>
+						))}
 					</Section>
 				)}
 
 				{tvResults && tvResults.length > 0 && (
 					<Section title="TV Results">
-						{tvResults.map(show => (<span key={show.id}>{show.name}</span>))}
+						{tvResults.map(show => (
+							<Poster
+								key={show.id}
+								id={show.id}
+								title={show.name}
+								imageUrl={show.poster_path}
+								rating={show.vote_average}
+								year={show.first_air_date.substring(0, 4)}
+							/>
+						))}
 					</Section>
 				)}
 			</>
