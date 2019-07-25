@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Loader from 'Components/Loader';
 import Section from "Components/Section";
+import Message from 'Components/Message';
 
 const Container = styled.div`
 	padding: 0 20px;
@@ -19,14 +20,14 @@ const Input = styled.input`
 `;
 
 const SearchPresenter = ({
- movieResults,
- tvResults,
- searchTerm,
- loading,
- error,
- handleSubmit,
- updateTerm
-}) => (
+	                         movieResults,
+	                         tvResults,
+	                         searchTerm,
+	                         loading,
+	                         error,
+	                         handleSubmit,
+	                         updateTerm
+                         }) => (
 	<Container>
 		<Form onSubmit={handleSubmit}>
 			<Input placeholder="Search Movies or TV Shows..."
@@ -34,7 +35,7 @@ const SearchPresenter = ({
 			       onChange={updateTerm}/>
 		</Form>
 
-		{loading ? <Loader /> : (
+		{loading ? <Loader/> : (
 			<>
 				{movieResults && movieResults.length > 0 && (
 					<Section title="Movie Results">
@@ -48,6 +49,15 @@ const SearchPresenter = ({
 					</Section>
 				)}
 			</>
+		)}
+
+		{error && <Message color="#e74c3c" text={error}/>}
+
+		{movieResults &&
+		tvResults &&
+		tvResults.length === 0 &&
+		movieResults.length === 0 && (
+			<Message text={`Nothing Found: ${searchTerm}`} color="#95afc0"></Message>
 		)}
 	</Container>
 );

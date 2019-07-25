@@ -40,12 +40,17 @@ export default class extends React.Component {
 
 			this.setState({
 				movieResults,
-				tvResults
+				tvResults,
+				searchTerm: ''
 			})
 		} catch {
-
+			this.setState({
+				error: "Can't find movies information."
+			});
 		} finally {
-
+			this.setState({
+				loading: false
+			});
 		}
 	};
 
