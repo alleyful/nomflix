@@ -28,6 +28,10 @@ clone coding Nomflix.
 - [ ] /collections Route
 - [ ] On TV Show, show seasons and creators
 
+# Preview :
+
+- [Netlify 미리보기](https://alleyful.netlify.com/)
+
 <br/>
 
 ---
