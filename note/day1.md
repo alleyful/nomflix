@@ -70,13 +70,25 @@ const sayHello = (name = "Alley") => "Hello" + name;
 <br/>
 
 ### 1.2 Template Literals
+ES6의 새로운 문자열 표기이다. 일반적인 문자열과 달리 여러 줄에 걸쳐 문자열을 작성할 수 있으며 템플릿 리터럴 내의 모든 white-space는 있는 그대로 적용된다.  
+템플릿 리터럴은 + 연산자를 사용하지 않아도 간단한 방법으로 새로운 문자열을 삽입할 수 있는 기능을 제공한다. 이를 문자열 인터폴레이션(String Interpolation)이라 한다.  
+문자열 인터폴레이션은 ${ … }으로 표현식을 감싼다. 문자열 인터폴레이션 내의 표현식은 문자열로 강제 타입 변환된다.
+
 ```javascript
 const sayHello = (name = "Alley") => `Hello ${name}`;
+
+console.log(`1 + 1 = ${1 + 1}`); // "1 + 1 = 2"
 ```
+
+- Reference
+    - [템플릿 리터럴](https://poiemaweb.com/es6-template-literals)
 
 <br/>
 
 ### 1.3 Object Destructuring
+디스트럭처링(Destructuring)은 구조화된 배열 또는 객체를 Destructuring(비구조화, 파괴)하여 개별적인 변수에 할당하는 것이다.   
+배열 또는 객체 리터럴에서 필요한 값만을 추출하여 변수에 할당하거나 반환할 때 유용하다.
+
 ```javascript
 const human = {
   name: "Alley",
@@ -101,6 +113,8 @@ const { name, lastName, nation: difNation, favFood: { dinner } } = human;
 <br/>
 
 ### 1.4 Spread Operator
+Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리한다.
+
 ```javascript
 // Array
 const days = [ 'Mon', 'Tues', 'Wed' ];
@@ -126,6 +140,11 @@ const two = { ...ob, ...ab }
 <br/>
 
 ### 1.5 Classes
+자바스크립트는 프로토타입 기반(prototype-based) 객체지향 언어다. 비록 다른 객체지향 언어들과의 차이점에 대한 논쟁이 있긴 하지만, 자바스크립트는 강력한 객체지향 프로그래밍 능력을 지니고 있다.
+
+프로토타입 기반 프로그래밍은 클래스가 필요없는(class-free) 객체지향 프로그래밍 스타일로 프로토타입 체인과 클로저 등으로 객체 지향 언어의 상속, 캡슐화(정보 은닉) 등의 개념을 구현할 수 있다.
+
+
 ```javascript
 class Human {
   constructor(name, lastName) {
@@ -147,6 +166,13 @@ const myBaby = new Baby('mini', 'me');
 console.log(myBaby.cry(), myBaby.sayName());
 ```
 
+ES6 클래스는 class 키워드를 사용하여 정의하며, new 연산자와 함께 클래스 이름을 호출하면 클래스의 인스턴스가 생성된다.  
+
+constructor는 인스턴스를 생성하고 클래스 필드를 초기화하기 위한 특수한 메소드이다. constructor는 클래스 내에 한 개만 존재할 수 있으며 만약 클래스가 2개 이상의 constructor를 포함하면 문법 에러(SyntaxError)가 발생한다. constructor는 인스턴스의 생성과 동시에 클래스 필드의 생성과 초기화를 실행한다. 따라서 클래스 필드를 초기화해야 한다면 constructor를 생략해서는 안된다.
+
+클래스의 정적(static) 메소드를 정의할 때 static 키워드를 사용한다. 정적 메소드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다. 따라서 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다. 정적 메소드는 클래스 이름으로 호출하기 때문에 클래스의 인스턴스를 생성하지 않아도 사용할 수 있다. 단, 정적 메소드는 this를 사용할 수 없다. 달리 말하면 메소드 내부에서 this를 사용할 필요가 없는 메소드는 정적 메소드로 만들 수 있다. 정적 메소드는 Math 객체의 메소드처럼 애플리케이션 전역에서 사용할 유틸리티(utility) 함수를 생성할 때 주로 사용한다.
+- Reference
+    - [클래스](https://poiemaweb.com/es6-class)
 <br/>
 
 ---
