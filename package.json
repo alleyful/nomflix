@@ -1,6 +1,7 @@
 {
-  "name": "nomflix",
-  "version": "0.1.0",
+  "name": "alleyflix",
+  "version": "v1.0",
+  "description": "First clone coding for ReactJs with Nomad",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
