@@ -2,9 +2,17 @@
 
 ---
 
+<br/>
+
+<br/>
+
 # Day1
-- 오늘의 강의: #1.0 ~ #1.5
-- 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
+> - 오늘의 강의: #1.0 ~ #1.5
+> - 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
+
+<br/>
+
+---
 
 <br/>
 
@@ -80,4 +88,21 @@ This is the desired output.
 <br/>
 
 ### Submit
+
 ![Day1 CodeSandbox](https://codesandbox.io/s/day-one-blueprint-hrvg2)
+
+```javascript
+class ObjectUtilities {
+  // 주어진 조건에서 instance 생성을 하지 않으므로 static methid 이용.
+
+  static mergeObjects = (objA, objB) => ({ ...objA, ...objB });
+
+  static removePassword = ({ password, ...user }) => ({ ...user });
+
+  static freezeObj = cleanUser => Object.freeze(cleanUser);
+
+  static getOnlyValues = frozenUser => Object.keys(frozenUser).map(k => frozenUser[k]);
+
+  static getOnlyProperties = frozenUser => Object.keys(frozenUser).map(k => k);
+}
+```
