@@ -1,7 +1,7 @@
 {
   "name": "alleyflix",
-  "version": "v1.0",
-  "description": "First clone coding for ReactJs with Nomad",
+  "version": "v2.0",
+  "description": "Second clone coding for ReactJs with Challenges",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",

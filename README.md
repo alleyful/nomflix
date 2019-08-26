@@ -1,36 +1,14 @@
-# Alleyflix
+# React 2주 챌린지
 
-clone coding Nomflix.
+---
 
-## Screens
+# Day1
+- 오늘의 강의: #1.0 ~ #1.5
+- 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
-- [ ] Detail
+<br/>
 
-## API Verbs
-
-- [x] Now playing (Movie)
-- [x] Upcoming (Movie)
-- [x] Top Rate (TV, Movie)
-- [x] Popular (TV, Movie)
-- [x] Airing Today (TV)
-- [x] TV Show Detail
-- [x] Movie Detail
-- [x] Search (Movie, RV)
-
-## Code Challenges
-
-- [ ] IMDB Link
-- [ ] Tabs inside of Movie / Show Details (YT Videos, Production Company & Countries)
-- [ ] Collections Link
-- [ ] /collections Route
-- [ ] On TV Show, show seasons and creators
-
-# Preview :
-
-- [Netlify 미리보기](https://alleyful.netlify.com/)
+## Lecture Summery
 
 <br/>
 
@@ -38,25 +16,68 @@ clone coding Nomflix.
 
 <br/>
 
-### install
-- yarn global add npx
-- npm i npx -g
-- npx create-react-app
+## Homework 
+```javascript
+class ObjectUtilities {
+  /* Your magic here */
+}
 
-### env
-- 불필요한 파일 삭제
-- .env : NODE_PATH 설정
-- npm i prop-types
+const objA = {
+  name: "Nicolas",
+  favFood: "Kimchi"
+};
 
-### Router
-- npm i react-router-dom
-- BrowserRouter
+const objB = {
+  password: "12345"
+};
 
-### style
-- yarn add styled-component
-- yarn add styled-reset
+const user = ObjectUtilities.mergeObjects(objA, objB);
+console.log(user);
 
+const cleanUser = ObjectUtilities.removePassword(user);
+console.log(cleanUser);
 
-### Networking
-- the movie DB api 체크
-- axios
+const frozenUser = ObjectUtilities.freezeObj(cleanUser);
+
+const onlyValues = ObjectUtilities.getOnlyValues(frozenUser);
+console.log(onlyValues);
+
+const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
+console.log(onlyProperties);
+
+frozenUser.name = "Hello!"; // This should show an error
+```
+<br/>
+
+### Constraints
+Complete the "**ObjectUtilities**" class with the following functions.
+- **mergeObjects**: Merge two objects. Return an object.
+- **removePassword**: Remove the 'password' key on an object. Return an object.
+- **freezeObj**: Freezes an object. Returns the frozen object.
+- **getOnlyValues**: Returns an array of all the values inside of an object.
+- **getOnlyProperties**: Returns an array of all the properties inside of an object.  
+ Changing the '**name**' of the '**frozenUser**' SHOULD throw an error.
+
+<br/>
+
+### Output
+This is the desired output.
+
+<br/>
+
+### Condition
+- The output of the program must be EXACTLY like on the image above.
+- Place your functions INSIDE of 'ObjectUtilities'
+- DO NOT edit ANYTHING OUTSIDE of 'ObjectUtiliies'.
+- Don't give up!
+
+<br/>
+
+### Hint
+- Use arrow functions
+- Use spread and rest operators
+
+<br/>
+
+### Submit
+![Day1 CodeSandbox](https://codesandbox.io/s/day-one-blueprint-hrvg2)
