@@ -15,3 +15,4 @@
 - 강의노트 [Day1 Note](./note/day1.md)
 - 오늘의 과제: [Day1 Question](https://codesandbox.io/s/day-one-blueprint-fdmk3)
 - 제출: [Day1 Answer](https://codesandbox.io/s/day-one-blueprint-hrvg2)
+- 정답 : [Day1 Correct](https://codesandbox.io/s/day-one-solution-qsule)

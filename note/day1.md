@@ -3,6 +3,9 @@
 > 오늘의 강의: #1.0 ~ #1.5  
 > 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
 
+<br/>
+
+[[멤버십] 초보를 위한 React JS](https://academy.nomadcoders.co/courses/436641/lectures/8467057)
 - 1.1 Arrow Functions
 - 1.2 Template Literals
 - 1.3 Object Destructuring
@@ -254,7 +257,9 @@ Error in sandbox:
 
 [Day1 CodeSandbox](https://codesandbox.io/s/day-one-blueprint-hrvg2)
 
-```javascript
+`My Answer`
+
+```javascript 
 class ObjectUtilities {
   // 주어진 조건에서 instance 생성을 하지 않으므로 static methid 이용.
 
@@ -267,5 +272,18 @@ class ObjectUtilities {
   static getOnlyValues = frozenUser => Object.keys(frozenUser).map(k => frozenUser[k]);
 
   static getOnlyProperties = frozenUser => Object.keys(frozenUser).map(k => k);
+}
+```
+
+<br/>
+
+`Correct`
+```javascript
+class ObjectUtilities {
+  static mergeObjects = (objectA, objectB) => ({ ...objectA, ...objectB });
+  static removePassword = ({ password, ...rest }) => rest;
+  static getOnlyProperties = obj => Object.keys(obj);
+  static getOnlyValues = obj => Object.values(obj);
+  static freezeObj = obj => Object.freeze(obj);
 }
 ```
