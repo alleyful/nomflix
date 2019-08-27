@@ -45,7 +45,7 @@ posts = posts.filter(post => post !== 'Bye');
 
 ### 1.8 .forEach .includes .push
 `forEach()` 메서드는 주어진 함수를 배열 요소 **각각에 대해 실행**합니다.  
-`includes()` 메서드는 배열이 특정 요소를 포함하고 있는지 판별 후 **boolean**값을 반환합니다.
+`includes()` 메서드는 배열이 특정 요소를 포함하고 있는지 판별 후 **boolean**값을 반환합니다.   
 `push()` 메서드는 **배열의 끝에 하나 이상의 요소를 추가**하고, 배열의 새로운 **길이를 반환**합니다.
 
 ```javascript
@@ -76,7 +76,7 @@ if(posts.includes('Howdy')){
 <br/>
 
 #### copyWithin()   
-메서드는 배열의 일부를 얕게 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰고 그 배열을 반환합니다. 이 때, 크기(배열의 길이)를 수정하지 않고 반환합니다.
+배열의 일부를 얕게 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰고 그 배열을 반환합니다. 이 때, 크기(배열의 길이)를 수정하지 않고 반환합니다.
 ```javascript
 const array1 = ['a', 'b', 'c', 'd', 'e'];
 
@@ -132,6 +132,38 @@ console.log(animals.push('cows'));
 console.log(animals);
 // expected output: Array ["pigs", "goats", "sheep", "cows"]
 ```
+
+<br/>
+   
+#### shift()   
+배열에서 첫 번째 요소를 삭제하고 그 요소를 반환합니다. 이 메서드는 배열의 길이를 변하게 합니다.
+
+```javascript
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+```
+
+<br/>
+    
+#### unshift()   
+배열의 앞에 하나 이상의 요소를 추가하고 새로운 길이를 반환합니다.
+
+```javascript
+const array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// expected output: 5
+
+console.log(array1);
+// expected output: Array [4, 5, 1, 2, 3]
+```
     
 <br/>
 
@@ -153,23 +185,6 @@ console.log('array1: ', array1);
 // expected output: Array ['three', 'two', 'one']
 ```
  
-<br/>
-   
-#### shift()   
-배열에서 첫 번째 요소를 삭제하고 그 요소를 반환합니다. 이 메서드는 배열의 길이를 변하게 합니다.
-
-```javascript
-const array1 = [1, 2, 3];
-
-const firstElement = array1.shift();
-
-console.log(array1);
-// expected output: Array [2, 3]
-
-console.log(firstElement);
-// expected output: 1
-```
-   
 <br/>
  
 #### sort()   
@@ -204,19 +219,6 @@ console.log(months);
 ```
 
 <br/>
-    
-#### unshift()   
-배열의 앞에 하나 이상의 요소를 추가하고 새로운 길이를 반환합니다.
-
-```javascript
-const array1 = [1, 2, 3];
-
-console.log(array1.unshift(4, 5));
-// expected output: 5
-
-console.log(array1);
-// expected output: Array [4, 5, 1, 2, 3]
-```
 
 <br/>
 
@@ -327,6 +329,8 @@ const array1 = [1, 2, 'a', '1a'];
 console.log(array1.toString());
 // expected output: "1,2,a,1a"
 ``` 
+
+<br/>
 
 <br/>
 
