@@ -3,6 +3,9 @@
 > 오늘의 강의: #1.0 ~ #1.5  
 > 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
 
+<br/>
+
+[[멤버십] 초보를 위한 React JS](https://academy.nomadcoders.co/courses/436641/lectures/8467057)
 - 1.1 Arrow Functions
 - 1.2 Template Literals
 - 1.3 Object Destructuring
@@ -171,8 +174,10 @@ ES6 클래스는 class 키워드를 사용하여 정의하며, new 연산자와 
 constructor는 인스턴스를 생성하고 클래스 필드를 초기화하기 위한 특수한 메소드이다. constructor는 클래스 내에 한 개만 존재할 수 있으며 만약 클래스가 2개 이상의 constructor를 포함하면 문법 에러(SyntaxError)가 발생한다. constructor는 인스턴스의 생성과 동시에 클래스 필드의 생성과 초기화를 실행한다. 따라서 클래스 필드를 초기화해야 한다면 constructor를 생략해서는 안된다.
 
 클래스의 정적(static) 메소드를 정의할 때 static 키워드를 사용한다. 정적 메소드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다. 따라서 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다. 정적 메소드는 클래스 이름으로 호출하기 때문에 클래스의 인스턴스를 생성하지 않아도 사용할 수 있다. 단, 정적 메소드는 this를 사용할 수 없다. 달리 말하면 메소드 내부에서 this를 사용할 필요가 없는 메소드는 정적 메소드로 만들 수 있다. 정적 메소드는 Math 객체의 메소드처럼 애플리케이션 전역에서 사용할 유틸리티(utility) 함수를 생성할 때 주로 사용한다.
+
 - Reference
     - [클래스](https://poiemaweb.com/es6-class)
+    - [static](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static)
 <br/>
 
 ---
@@ -252,6 +257,7 @@ Error in sandbox:
 
 ### Submit
 
+`My Answer`
 [Day1 CodeSandbox](https://codesandbox.io/s/day-one-blueprint-hrvg2)
 
 ```javascript
@@ -267,5 +273,20 @@ class ObjectUtilities {
   static getOnlyValues = frozenUser => Object.keys(frozenUser).map(k => frozenUser[k]);
 
   static getOnlyProperties = frozenUser => Object.keys(frozenUser).map(k => k);
+}
+```
+
+<br/>
+
+`Correct`
+[Day1 Correct](https://codesandbox.io/s/day-one-solution-qsule)
+
+```javascript
+class ObjectUtilities {
+  static mergeObjects = (objectA, objectB) => ({ ...objectA, ...objectB });
+  static removePassword = ({ password, ...rest }) => rest;
+  static getOnlyProperties = obj => Object.keys(obj);
+  static getOnlyValues = obj => Object.values(obj);
+  static freezeObj = obj => Object.freeze(obj);
 }
 ```
