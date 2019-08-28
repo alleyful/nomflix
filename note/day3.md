@@ -139,7 +139,7 @@ export default () => (
 
 - `React Router`을 사용하기 위해 다음과 같이 import 해준다. as 를 이용하여 Router 라는 이름으로 쓸것이다.
 - 각각 url로 들어 갔을 때 보여줄 컴포넌트들을 import 해준다.
-- <Route>를 <Router>로 감싸준다. Switch를 사용하면 해당하는 url을 찾아 그 컴포넌트를 그려주고 빠져나온다.
+- Route를 Router로 감싸준다. Switch를 사용하면 해당하는 url을 찾아 그 컴포넌트를 그려주고 빠져나온다.
 - exact 또는 exact={true} 는 / 가 포함된 url이 아니라 정확히/ 로 들어왔을 때만 해당 컴포넌트를 그려주게 해주는 것이다. 이것을 안해주면 /search /tv 등등 다른 url에서도 / 을 포함하고 있기 때문에 의도치 않게 함께 그려지는 것을 방지해야 한다.
 
 <br/>
