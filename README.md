@@ -44,10 +44,21 @@
 - 강의노트 [Day2 Note](./note/day2.md)
 - 오늘의 과제: [Day2 Question](https://codesandbox.io/s/day-two-blueprint-kfv4j)
 - 제출: [Day2 Answer](https://codesandbox.io/s/day-two-blueprint-8zzqh)
-- 정답 : 
-- 회고
+- 정답 : [Day3 Correct](https://codesandbox.io/s/day-two-solution-t0g38)
+- 회고   
     대부분 API를 통해서 얻어진 데이터들은 배열과 객체로 이루어져 있다.  
     이러한 데이터들을 잘 다루기 위해 javascript에서 제공하는 메소드들을 잘 활용할 수 있도록 다양한 Array 메소드들을 살펴보았다.  
     이전부터 사용하던 메소드들도 있지만 ES6이후 생겨난 메소드들은 더욱 가독성이 좋으며 직관적으로 코드를 짤 수 있도록 도와준다.  
     혼자만 작업하는 1인 개발자 회사가 아닌 이상 협엽은 필수이며, 가독성 좋게 잘 짜여진 코드 한줄을 위한 노력이 더 좋은 코드를 향해 함께 할 수 있도록 해주는 기본중에 하나가 아닐까 생각해본다.
+    
+<br/>
+
+### Day3
+- 오늘의 강의
+    - 2.1 React Router Part One
+    - 2.2 React Router Part Two
+- 강의노트 [Day3 Note](./note/day3.md)
+- 오늘의 과제: [Day3 Question](https://codesandbox.io/s/day-two-blueprint-kfv4j)
+- 제출: [Day3 Answer](https://codesandbox.io/s/day-two-blueprint-8zzqh)
+- 정답 : []()
     
