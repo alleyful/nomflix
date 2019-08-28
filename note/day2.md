@@ -599,7 +599,7 @@ This is the desired output.
 `My Answer`
 [Day2 CodeSandbox](https://codesandbox.io/s/day-two-blueprint-8zzqh)
 
-```javascript 
+```javascript
 class ArrayUtilities {
   static addZeros = numbers => numbers.map(number => Number(`${number}0`));
   static moreThanFifty = numbers => numbers.filter(number => number > 50);
@@ -613,6 +613,16 @@ class ArrayUtilities {
 <br/>
 
 `Correct`
+[Day3 Correct](https://codesandbox.io/s/day-two-solution-t0g38)
 ```javascript
-
+class ArrayUtilities {
+  static addZeros = arr => arr.map(n => n * 10);
+  static moreThanFifty = arr => arr.filter(n => n > 50);
+  static removeFirst = arr => {
+    const [, ...rest] = arr;
+    return rest;
+  };
+  static sumAll = arr => arr.reduce((a, b) => a + b, 0);
+  static divide = payload => `${payload}`.split("");
+}
 ```
