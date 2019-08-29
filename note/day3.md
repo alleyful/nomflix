@@ -274,7 +274,25 @@ export default () => {
 <br/>
 
 `Correct`
-[]()
-```javascript
+[Day3 Correct](https://codesandbox.io/s/day-three-solution-o4vol)
 
+`Components/Router.js`
+```jsx harmony
+import React from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
+import Header from "./Header";
+import Coins from "../Screens/Coins";
+import Exchanges from "../Screens/Exchanges";
+import Prices from "../Screens/Prices";
+
+export default () => {
+  return (
+    <Router>
+      <Header />
+      <Route path="/" exact component={Prices} />
+      <Route path="/exchanges" component={Exchanges} />
+      <Route path="/coins" exact component={Coins} />
+    </Router>
+  );
+};
 ```
