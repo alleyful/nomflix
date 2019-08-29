@@ -74,5 +74,5 @@
 - 강의노트: [Day4 Note](./note/day4.md)
 - 오늘의 과제: [Day4 Question](https://codesandbox.io/s/day-four-boilerplate-jxch9)
 - 제출: [Day4 Answer](https://codesandbox.io/s/day-four-boilerplate-tddjh)
-- 정답:
+- 정답: [Day4 Current](https://codesandbox.io/s/day-four-solution-3j7gi)
     
