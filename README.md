@@ -23,10 +23,10 @@
     - 1.3 Object Destructuring
     - 1.4 Spread Operator
     - 1.5 Classes
-- 강의노트 [Day1 Note](./note/day1.md)
+- 강의노트: [Day1 Note](./note/day1.md)
 - 오늘의 과제: [Day1 Question](https://codesandbox.io/s/day-one-blueprint-fdmk3)
 - 제출: [Day1 Answer](https://codesandbox.io/s/day-one-blueprint-hrvg2)
-- 정답 : [Day1 Correct](https://codesandbox.io/s/day-one-solution-qsule)
+- 정답: [Day1 Correct](https://codesandbox.io/s/day-one-solution-qsule)
 - 회고  
     오늘의 강의는 arrow function, templeate literals 등 ES6를 접하게 되면 처음 배우는 내용이었다.  
     이미 머리로는 알고 있는 내용이었지만, 정작 인스턴스를 만들지 않고 함수를 호출하는 부분에서부터 막힐줄은 몰랐다. '해당 메소드를 찾을 수.....'   
@@ -41,10 +41,10 @@
     - 1.6 Array.map
     - 1.7 Array.filter
     - 1.8 .forEach .includes .push
-- 강의노트 [Day2 Note](./note/day2.md)
+- 강의노트: [Day2 Note](./note/day2.md)
 - 오늘의 과제: [Day2 Question](https://codesandbox.io/s/day-two-blueprint-kfv4j)
 - 제출: [Day2 Answer](https://codesandbox.io/s/day-two-blueprint-8zzqh)
-- 정답 : [Day3 Correct](https://codesandbox.io/s/day-two-solution-t0g38)
+- 정답: [Day2 Correct](https://codesandbox.io/s/day-two-solution-t0g38)
 - 회고   
     대부분 API를 통해서 얻어진 데이터들은 배열과 객체로 이루어져 있다.  
     이러한 데이터들을 잘 다루기 위해 javascript에서 제공하는 메소드들을 잘 활용할 수 있도록 다양한 Array 메소드들을 살펴보았다.  
@@ -57,8 +57,12 @@
 - 오늘의 강의
     - 2.1 React Router Part One
     - 2.2 React Router Part Two
-- 강의노트 [Day3 Note](./note/day3.md)
+- 강의노트: [Day3 Note](./note/day3.md)
 - 오늘의 과제: [Day3 Question](https://codesandbox.io/s/day-two-blueprint-kfv4j)
 - 제출: [Day3 Answer](https://codesandbox.io/s/day-two-blueprint-8zzqh)
-- 정답 : []()
+- 정답: [Day3 Correct](https://codesandbox.io/s/day-three-solution-o4vol)
+
+<br/>
+
+
     
