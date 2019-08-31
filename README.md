@@ -75,4 +75,32 @@
 - 오늘의 과제: [Day4 Question](https://codesandbox.io/s/day-four-boilerplate-jxch9)
 - 제출: [Day4 Answer](https://codesandbox.io/s/day-four-boilerplate-tddjh)
 - 정답: [Day4 Current](https://codesandbox.io/s/day-four-solution-3j7gi)
+ 
+<br/>
+
+### Day5 ~ 6 (2일간 진행되는 Challenges)
+- 오늘의 강의
+    `4 Networking`
+    - 4.0 Introduction to The Movie DB API 
+    - 4.1 Sexy Networking with Axios Instances 
+    - 4.2 API Verbs part One 
+    - 4.3 API Verbs part Two     
+     
+    `5 Containers`
+    - 5.0 Container Presenter Pattern part One 
+    - 5.1 Container Presenter Pattern part Two 
+    - 5.2 Home Container 
+    - 5.3 TV Container 
+    - 5.4 Search Container 
+    - 5.5 Detail Container part One 
+    - 5.6 Detail Container part Two 
+    - 5.7 Destructuring assignment with let 
     
+    `6 Presenters`
+    - 6.0 Presenter Structure 
+    - 6.1 HomePresenter and Section Components 
+    - 6.2 TVPresenter and Loader Components 
+- 강의노트: [Day5 Note](./note/day5.md)
+- 오늘의 과제: [Day5 Question](https://codesandbox.io/s/day-five-blueprint-ubv3d)
+- 제출: [Day5 Answer](https://codesandbox.io/s/day-five-blueprint-swptw)
+- 정답: [Day5 Current]()   
