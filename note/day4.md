@@ -29,7 +29,7 @@
 - styles.css 생성 후 index.js에서 import
 - 장점 : 사용방법이 쉬움
 - 단점 : 컴포넌트와 css 파일이 분리되어 있음
-    
+
 ```
 my-app
 └── src
@@ -37,15 +37,16 @@ my-app
     ├── styles.css
     ├── Router
     └── Components
-```    
+```
 
 <br/>
-    
+
 #### 폴더에 정리
 - components폴더 안에 js 파일과 css 파일을 함께 생성하여 js 파일에서 import
 - 장점 : 파일이 한 폴더에 모여있어 찾기 쉬움.
 - 단점 : 사용할때마다 import 해줘야 함. className을 기억해서 반복되지 않도록 해야함.
 - 사용 : `<header className="nav">`
+
 ```
 my-app
 └── src
