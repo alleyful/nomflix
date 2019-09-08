@@ -49,7 +49,7 @@
     대부분 API를 통해서 얻어진 데이터들은 배열과 객체로 이루어져 있다.  
     이러한 데이터들을 잘 다루기 위해 javascript에서 제공하는 메소드들을 잘 활용할 수 있도록 다양한 Array 메소드들을 살펴보았다.  
     이전부터 사용하던 메소드들도 있지만 ES6이후 생겨난 메소드들은 더욱 가독성이 좋으며 직관적으로 코드를 짤 수 있도록 도와준다.  
-    혼자만 작업하는 1인 개발자 회사가 아닌 이상 협엽은 필수이며, 가독성 좋게 잘 짜여진 코드 한줄을 위한 노력이 더 좋은 코드를 향해 함께 할 수 있도록 해주는 기본중에 하나가 아닐까 생각해본다.
+    혼자만 작업하는 1인 개발자 회사가 아닌 이상 협업은 필수이며, 가독성 좋게 잘 짜여진 코드 한줄을 위한 노력이 더 좋은 코드를 향해 함께 할 수 있도록 해주는 기본중에 하나가 아닐까 생각해본다.
     
 <br/>
 
@@ -103,4 +103,64 @@
 - 강의노트: [Day5 Note](./note/day5.md)
 - 오늘의 과제: [Day5 Question](https://codesandbox.io/s/day-five-blueprint-ubv3d)
 - 제출: [Day5 Answer](https://codesandbox.io/s/day-five-blueprint-swptw)
-- 정답: [Day5 Current]()   
+- 정답: [Day5 Current](https://codesandbox.io/s/day-five-solution-xoocs) 
+
+<br/>
+
+### Day7 (holiday)  
+
+<br/>
+
+### Day8 ~ 9 (2일간 진행되는 Challenges)
+- 오늘의 강의
+    - 6.8 Detail Container part One
+    - 6.9 Detail Container part Two
+- 강의노트: [Day8 Note](./note/day8.md)
+- 오늘의 과제: [Day8 Question](https://codesandbox.io/s/day-five-solution-xoocs)
+- 제출: [Day8 Answer](https://codesandbox.io/s/day-five-solution-2wr12)
+- 정답: [Day8 Current](https://codesandbox.io/s/day-six-solution-6n2q7) 
+
+<br/>
+
+### Day10 ~ 11 (2일간 진행되는 Challenges)
+- 오늘의 강의   
+
+    `1 useState`
+    - 1.0 Introduction to useState
+    - 1.1 useInput
+    - 1.2 useInput part Two
+    - 1.3 useTabs
+    
+    `2 useEffect`
+    - 2.0 Introduction to useEffect
+    - 2.1 useTitle
+    - 2.2 useClick
+    - 2.3 useConfirm & usePreventLeave
+    - 2.4 useBeforeLeave
+    - 2.5 useFadeIn & useNetwork
+    - 2.6 useScroll & useFullscreen
+    - 2.7 useNotification
+    - 2.8 useAxios
+    - 2.9 Conclusions
+- 강의노트: [Day10 Note](./note/day10.md)
+- 오늘의 과제: [Day10 Question](https://codesandbox.io/s/day-seven-blueprint-xrfub)
+- 제출: [Day10 Answer](https://codesandbox.io/s/day-seven-blueprint-sud5f)
+- 정답: [Day10 Current](https://codesandbox.io/s/day-seven-solution-tvz5q) 
+
+<br/>
+
+### Day12
+- 오늘의 강의 : 없습니다.
+- 강의노트: [Day12 Note](./note/day12.md)
+- 오늘의 과제: [Day12 Question](https://codesandbox.io/s/day-six-solution-6n2q7)
+- 제출: [Day12 Answer](https://codesandbox.io/s/day-six-solution-0vhns)
+- 정답: [Day12 Current](https://codesandbox.io/s/day-eight-solution-0210c) 
+
+<br/>
+
+### Day13
+- 오늘의 강의 : 없습니다.
+- 강의노트: [Day13 Note](./note/day13.md)
+- 오늘의 과제: [Day13 Question](https://codesandbox.io/s/day-seven-blueprint-xrfub)
+- 제출: [Day13 Answer](https://codesandbox.io/s/day-seven-blueprint-jx0mh)
+- 정답: [Day13 Current](https://codesandbox.io/s/day-nine-solution-6pwcl) 
