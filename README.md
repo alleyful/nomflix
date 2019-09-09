@@ -164,3 +164,17 @@
 - 오늘의 과제: [Day13 Question](https://codesandbox.io/s/day-seven-blueprint-xrfub)
 - 제출: [Day13 Answer](https://codesandbox.io/s/day-seven-blueprint-jx0mh)
 - 정답: [Day13 Current](https://codesandbox.io/s/day-nine-solution-6pwcl) 
+
+<br/>
+
+### Day14
+- 오늘의 강의
+    - 6.11 Code Challenges
+    
+    `Deployment`
+     - Deploy to Github Pages
+     - Deploying to Netlify
+     
+- 강의노트: [Day14 Note](./note/day14.md)
+- 오늘의 과제: 6.11 Code Challenge
+- 제출: [alleyful.netlify.com](https://alleyful.netlify.com/)
