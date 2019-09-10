@@ -178,3 +178,8 @@
 - 강의노트: [Day14 Note](./note/day14.md)
 - 오늘의 과제: 6.11 Code Challenge
 - 제출: [alleyful.netlify.com](https://alleyful.netlify.com/)
+    - [x] IMDB Link
+    - [ ] Tabs inside of Movie / Show Details (YT Videos, Production Company & Countries)
+    - [ ] Collections Link
+    - [ ] /collections Route
+    - [ ] on TV Show, show seasons and creators
