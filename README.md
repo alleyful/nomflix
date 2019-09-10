@@ -167,14 +167,19 @@
 
 <br/>
 
-### Day14
+### Day14 (3일간 진행되는 졸업작품)
 - 오늘의 강의
     - 6.11 Code Challenges
     
     `Deployment`
-     - Deploy to Github Pages
-     - Deploying to Netlify
+     - 7.0 Deploy to Github Pages
+     - 7.1 Deploying to Netlify
      
 - 강의노트: [Day14 Note](./note/day14.md)
 - 오늘의 과제: 6.11 Code Challenge
 - 제출: [alleyful.netlify.com](https://alleyful.netlify.com/)
+    - [x] IMDB Link
+    - [ ] Tabs inside of Movie / Show Details (YT Videos, Production Company & Countries)
+    - [ ] Collections Link
+    - [ ] /collections Route
+    - [ ] on TV Show, show seasons and creators
