@@ -39,7 +39,7 @@ const Company = ({production_companies: companies}) => (
 	<Container>
 		<Title>Production Companies</Title>
 		<List>
-			{companies && companies.length > 0 && companies.map(v =>
+			{(companies && companies.length > 0) ? companies.map(v =>
 				<Item key={v.id}>
 					<Image
 						bgUrl={v.logo_path
@@ -48,7 +48,7 @@ const Company = ({production_companies: companies}) => (
 					/>
 					<SubName>{v.name}</SubName>
 				</Item>
-			)}
+			) : 'Sorry! No data'}
 		</List>
 	</Container>
 );

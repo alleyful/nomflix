@@ -189,10 +189,10 @@ const DetailPresenter = withRouter(({ result, loading, error, location: {pathnam
 							</List>
 						</InsideMenu>
 						<Route path="/movie/:id/company" render={(routeProps) => (<Company {...result} />)}/>
-						<Route path="/movie/:id/country" component={Country} {...result}/>
-						<Route path="/show/:id/company" component={Company} {...result}/>
-						<Route path="/show/:id/country" component={Country} {...result}/>
-						<Route path="/show/:id/season" component={Season} {...result}/>
+						<Route path="/movie/:id/country" render={(routeProps) => (<Country {...result} />)}/>
+						<Route path="/show/:id/company" render={(routeProps) => (<Company {...result} />)}/>
+						<Route path="/show/:id/country" render={(routeProps) => (<Country {...result} />)}/>
+						<Route path="/show/:id/season" render={(routeProps) => (<Season {...result} />)}/>
 					</Data>
 				</Content>
 			</Container>
