@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import Loader from 'Components/Loader';
 import Section from 'Components/Section';
 import Message from 'Components/Message';
 import Poster from "Components/Poster";
@@ -16,7 +17,7 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => (
 			<title>Movies | Alleyflix</title>
 		</Helmet>
 		{loading
-			? null
+			? <Loader />
 			: (
 				<Container>
 					{nowPlaying && nowPlaying.length > 0 && (
