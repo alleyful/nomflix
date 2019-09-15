@@ -119,6 +119,9 @@
 - 오늘의 과제: [Day8 Question](https://codesandbox.io/s/day-five-solution-xoocs)
 - 제출: [Day8 Answer](https://codesandbox.io/s/day-five-solution-2wr12)
 - 정답: [Day8 Current](https://codesandbox.io/s/day-six-solution-6n2q7) 
+- 회고   
+    답을 알고보면 정말 간단히 풀리는 것을 많이 돌아돌아 겨우 풀어낸 것 같다. 아마 깊이 있게 알지 못하고 경험이 부족하기 때문이 아닐까 싶다. 
+    더욱더 많은 노력이 필요할 것 같다는 생각을 다시한번 해본다. react-router에 대해 다시한번 알아볼 수 있는 기회가 되어 더욱 좋은 시간이었다.
 
 <br/>
 
