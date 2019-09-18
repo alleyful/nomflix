@@ -7,6 +7,7 @@ import Loader from 'Components/Loader';
 import Company from 'Components/Company';
 import Country from 'Components/Country';
 import Season from 'Components/Season';
+import Video from 'Components/Video';
 
 const Container = styled.div`
 	position: relative;
@@ -161,6 +162,10 @@ const DetailPresenter = withRouter(({ result, loading, error, location: {pathnam
 						</ItemContainer>
 
 						<Overview>{result.overview}</Overview>
+
+						{(result.videos && result.videos.results && result.videos.results.length > 0) && (
+							<Video videos={result.videos.results}/>
+						)}
 
 						<InsideMenu>
 							<List>
