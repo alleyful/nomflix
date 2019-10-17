@@ -289,6 +289,299 @@ export default PricesPresenter;
 
 <br/>
 
+# 자바스크립트의 Async/Await 가 Promises를 사라지게 만들 수 있는 6가지 이유
+이글은 6 Reasons Why JavaScript’s Async/Await Blows Promises Away (Tutorial)에 대한 번역입니다.
+
+<br/>
+
+당신이 잊고 있었는지는 모르겠지만, Node는 7.6 버전부터 async/await 를 별도의 도구없이도 지원하기 시작했다. 아직 async/await를 사용해본 적이 없다면, 이 글을 통해 왜 돌아볼 필요도 없이 바로 이것을 적용해야하는지에 대한 이유들을 예제와 함께 확인해보길 바란다.
+
+[UPDATE]: Node 8 LTS 는 Asnyc/Await를 완벽하게 지원하기로 했다.
+
+[EDIT]: gist에 있는 embedded 코드들은 미디엄 네이티브 앱에서는 동작하지 않는 것으로 보인다, 그렇지만 모바일 브라우저에서는 동작한다. 만약 앱을 통해 이 글을 일고 있다면, share 아이콘을 탭해서, “open in browser”를 선택하여 코드 스니펫들을 확인하기 바란다.
+
+<br/>
+
+## Async/await 101
+async/await에 대해 한번도 들어본 적이 없는 사람들을 위해, 간단한 소개글을 준비했다.
+- asnyc/await 는 비동기 코드를 작성하는 새로운 방법이다. 이전에는 비동기코드를 작성하기 위해 callback이나 promise를 사용해야 했다.
+- asnyc/await 는 실제로는 최상위에 위치한 promise에 대해서 사용하게 된다. Asnyc/await는 plain callback 이나 node callback과 함께 사용할 수 없다.
+- async/await는 promise처럼 non-blocking 이다.
+- async/await는 비동기 코드의 겉모습과 동작을 좀 더 동기 코드와 유사하게 만들어준다. 이것이 async/await의 가장 큰 장점이다.
+
+<br/>
+
+## 문법
+`getJSON`함수를 예로 들어보자. 이 함수는 promise를 반환하고, JSON 오브젝트로 resolve된다. 우리는 간단하게 이 함수를 호출하고, JSON의 로그를 남기고, `"done"`을 반환할 것이다.
+
+다음은 promise를 사용해서 구현한 예이다.
+
+```javascript
+const makeRequest = () =>
+  getJSON()
+    .then(data => {
+      console.log(data);
+      return "done"
+    });
+
+makeRequest()
+```
+
+그리고 다음은 async/await를 사용했을 때의 예이다.
+
+```javascript
+const makeRequest = async () => {
+  console.log(await getJSON());
+  return "done";
+};
+
+makeRequest()
+```
+
+둘 사이에는 몇가지 차이점이 있다.
+
+1. 함수의 앞에 `async` 라는 단어가 오게된다. `await` 키워드는 오직 `async` 로 정의된 함수의 내부에서만 사용될 수 있다. 모든 `async` 함수는 암묵적으로 promise를 반환하고, promise가 함수로부터 반환할 값(예제에서는 `"done"` 이라는 문자열)을 resolve 한다.
+2. 위와 같은 점 때문에 우리는 `await` 를 우리 코드의 탑 레벨에서는 사용할 수 없다. `async` 함수 안에 위치한 경우에만 사용이 가능하다.
+
+```javascript
+// this will not work in top level
+// await makeRequest()
+
+// this will work
+makeRequest().then((result) => {
+  // do something
+})
+```
+
+3. `await getJSON()` 는 `console.log` 의 호출이 `getJSON()` promise가 resolve된 후에 일어나고, 그 후에 값을 출력할 것이라는 것을 의미한다.
+
+<br/>
+
+## 왜 async/await가 더 나은가?
+
+### 1.간결함과 깔끔함
+위에서 우리가 줄인 코드량을 보라! 예제를 위해 작성한 위 코드에서 조차 우리가 꽤 많은 양의 코드를 줄인 것이 확연히 드러난다. `.then` 을 추가할 필요가 없었으며, response 를 해결하기 위한 비동기 함수를 만들 필요도 없었고, `data` 란 이름의 변수를 선언하고 사용할 필요도 없어졌다. 우리는 또한 코드의 nesting도 피할 수 있었다. 우리는 이러한 작은 이점들을 얻을 수 있으며, 이러한 이점은 뒤의 예제들을 통해 좀 더 명확하게 보여질 것이다.
+
+<br/>
+
+### 2.에러 핸들링
+async/await는 동기와 비동기 에러 모두를 `try/catch`를 통해서 처리할 수 있게 한다. `try/catch` 는 오래되었지만 좋은 접근 방식이다. promise를 사용한 아래 예제에서 `try/catch` 는 `JSON.parse` 가 실패하더라도 동작하지 않을 것이다. promise 안 쪽에서 발생한 에러이기 때문이다. 우리는 promise 상에서 `.catch` 를 호출해야하며, 에러를 처리하는 코드는 중복될 것이며 당신의 production ready 코드 안의 `console.log` 보다 더 복잡해질 것이다.
+
+```javascript
+const makeRequest = () => {
+  try {
+    getJSON()
+      .then(result => {
+        // this parse may fail
+        const data = JSON.parse(result);
+        console.log(data)
+      })
+      // uncomment this block to handle asynchronous errors
+      // .catch((err) => {
+      //   console.log(err)
+      // })
+  } catch (err) {
+    console.log(err)
+  }
+}
+```
+
+이제 같은 코드를 async/await 상에서 살펴보자. 이번에는 catch 블락이 에러를 파싱할 것이다.
+
+```javascript
+const makeRequest = async () => {
+  try {
+    // this parse may fail
+    const data = JSON.parse(await getJSON());
+    console.log(data)
+  } catch (err) {
+    console.log(err)
+  }
+}
+```
+
+<br/>
+
+### 3.분기
+아래와 같은 코드를 상상해보자. 데이터를 fetch하고 결과를 return 하거나 데이터 안의 값을 이용해서 더 상세한 정보를 가져올 지를 결정하는 코드이다.
+
+```javascript
+const makeRequest = () => {
+  return getJSON()
+    .then(data => {
+      if (data.needsAnotherRequest) {
+        return makeAnotherRequest(data)
+          .then(moreData => {
+            console.log(moreData);
+            return moreData
+          })
+      } else {
+        console.log(data);
+        return data
+      }
+    })
+}
+```
+
+코드를 보는 것만으로도 머리가 아프다. 메인 promise에서 마지막 결과가 나오기까지 많은 nesting(6 단계)과 대괄호들, return문들이 필요하다. 이런 코드를 읽기란 쉽지 않다.
+
+아래 예제는 async/await를 사용해서 좀 더 가독성을 높인 형태로 재작성되었다.
+
+```javascript
+const makeRequest = async () => {
+  const data = await getJSON();
+  if (data.needsAnotherRequest) {
+    const moreData = await makeAnotherRequest(data);
+    console.log(moreData);
+    return moreData
+  } else {
+    console.log(data);
+    return data    
+  }
+}
+```
+
+<br/>
+
+### 4. 중간값(Intermediate values)
+여러분은 개발하면서 다음과 같은 상황에 빠진 적이 있을 것이다. `promise1` 을 호출하고 여기서 return된 값을 사용해서 `promise2` 를 호출하고, `promise3` 을 호출하기 위해 두개의 promise들의 결과를 사용한다. 코드는 아마도 다음과 같을 것이다.
+
+```javascript
+const makeRequest = () => {
+  return promise1()
+    .then(value1 => {
+      // do something
+      return promise2(value1)
+        .then(value2 => {
+          // do something          
+          return promise3(value1, value2)
+        })
+    })
+}
+```
+
+만약 `promise3` 이 `value1` 을 요구하지 않았다면 promise들의 nesting을 조금 줄이기 쉬웠을 것이다. 이런 식으로 코드를 작성하고 싶지 않다면, value1 과 value2를 `Promise.all` 로 묶어서 nesting을 조금 피할 수 있다.
+
+```javascript
+const makeRequest = () => {
+  return promise1()
+    .then(value1 => {
+      // do something
+      return Promise.all([value1, promise2(value1)])
+    })
+    .then(([value1, value2]) => {
+      // do something          
+      return promise3(value1, value2)
+    })
+}
+```
+
+이런 식의 접근은 가독성 측면에서 코드의 의미를 희생시켜 버린다. `value1` 과 `value2` 가 배열에 함께 묶여야하는 이유는 오로지 promise nesting을 피하기 위해서다.
+
+같은 로직을 async/await 를 사용해서 구현하면 어이없을 정도로 단순하고 직관적으로 바뀐다. promise들을 덜 혐오스럽게 보이게 하기 위해 썼던 시간과 에너지를 생각하며 내가 뭘 했던건가하고 머리를 쥐어뜯게 될 수도 있다.
+
+```javascript
+const makeRequest = async () => {
+  const value1 = await promise1();
+  const value2 = await promise2(value1);
+  return promise3(value1, value2)
+}
+```
+
+<br/>
+
+### 5. error stack
+여러개의 promise들이 하나의 체인으로 선언되는 코드를 상상해보자. 그리고 체인 어딘가에서 error가 throw될 것이다.
+
+```javascript
+const makeRequest = () => {
+  return callAPromise()
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => {
+      throw new Error("oops");
+    })
+}
+
+makeRequest()
+  .catch(err => {
+    console.log(err);
+    // output
+    // Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)
+  })
+```
+
+promise 체인에서 반환되는 error stack은 어디서 에러가 발생했는 지에 관해 어떤 힌트도 주지 않는다. 더 안 좋은 점은 오해하기 쉽다는 점이다. stack에서 보여주는 유일한 함수 이름은 `callAPromise`이다. 이 함수는 에러와 관련해서 완전히 결백하다.(물론 파일이름과 라인넘버를 통해서 추론이 가능하기는 하지만)
+
+그렇지만 async/await에서 발생한 error stack은 error를 포함한 함수를 가르킨다.
+
+```javascript
+const makeRequest = async () => {
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+  throw new Error("oops");
+}
+
+makeRequest()
+  .catch(err => {
+    console.log(err);
+    // output
+    // Error: oops at makeRequest (index.js:7:9)
+  })
+```
+
+로컬 환경에서 에디터로 파일을 열어놓고 개발 중인 상황에서는 이런 부분이 큰 도움이 되는 건 아닐 수도 있다. 하지만 상용 서버에서 error log를 파악할 때에는 꽤나 유용할 것이다. 그런 상황에서 makeRequest에서 error가 발생했다는 것을 아는 것은 then 다음 then 다음 then에 error가 발생했다고 아는 것보다 더 유용할 것이다.
+
+<br/>
+
+### 6. 디버깅
+마지막이지만 사소하다고 할 수 없는 매우 중요한 장점이다.. async/await를 사용하면 디버깅이 매우 쉬워진다. promise를 디버깅 할 때에는 두가지면에서 고통이 따른다.
+
+1. return 되는 arrow function들에 breakpoint를 잡을 수 없다.
+
+```javascript
+//원하는 위치에 breakpoint를 잡을 수 없다
+const makeRequest = () => {
+  return callAPromise()
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+}
+```
+
+2. `.then` 블록 안에 breakpoint를 잡고 step-over와 같은 debug shortcuts을 사용하게되면 debugger는 `.then` 을 따라서 움직이지 않는다. 디버그도구가 동기화된 코드를 따라서만 움직이기 때문이다.
+async/await를 사용하게되면 arrow function을 많이 사용할 필요가 없고, 디버그도구는 동기화된 코드를 실행하는 것과 다름없이 동작할 것이다.
+
+```javascript
+const makeRequest = async () => {
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+  await callAPromise()
+}
+```
+
+<br/>
+
+## 결론
+async/await는 최근 몇년간 JavaScript에 추가된 기능 중에 가장 혁명적인 기능 중에 하나이다. 이를 사용하다보면 promise가 가진 문법적인 번잡함을 대신할 직관적인 대체재라는 것을 깨닫게 될 것이다.
+
+<br/>
+
+## Async/await에 대한 우려
+async/await에 관한 몇가지 들어볼 만한 회의적인 시각도 있다.
+- 이것은 비동기 코드를 덜 분명하게 만든다: 당신의 눈은 callback이나 `.then` 을 봤을 때 비동기 코드로 인식하도록 학습되어있다. 당신이 눈이 새로운 표식을 인지하려면 몇 주가 걸릴 것이다. 그렇지만 async/await는 C#에서는 이미 몇년 전부터 있었던 기능이며 이에 친숙한 사람들에게는 이것이 사소하고일시적인 불편함으로 느껴질 수 있다.
+- Node 7은 LTS가 아직 릴리즈되지 않았다: 맞다. 그렇지만 node 8은 다음달에 출시될 것이다. 코드베이스를 새 버전으로 옮기는 것은 거의 노력이 들어가지 않는 수준이라고 할 수 있다. [업데이트]: Node 8 LTS도 현재 출시되었다.
+
+<br/>
+
 ---
 
 <br/>
