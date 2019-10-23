@@ -289,8 +289,10 @@ export default PricesPresenter;
 
 <br/>
 
+<br/>
+
 # 자바스크립트의 Async/Await 가 Promises를 사라지게 만들 수 있는 6가지 이유
-이글은 6 Reasons Why JavaScript’s Async/Await Blows Promises Away (Tutorial)에 대한 번역입니다.
+이글은 6 Reasons Why JavaScript’s Async/Await Blows Promises Away (Tutorial)에 대한 번역글입니다. 필요할때 살펴 볼 수 있도록 발췌하여 원문 그대로 사용하였습니다.
 
 <br/>
 
@@ -354,6 +356,8 @@ makeRequest().then((result) => {
 ```
 
 3. `await getJSON()` 는 `console.log` 의 호출이 `getJSON()` promise가 resolve된 후에 일어나고, 그 후에 값을 출력할 것이라는 것을 의미한다.
+
+<br/>
 
 <br/>
 
@@ -570,17 +574,10 @@ const makeRequest = async () => {
 
 <br/>
 
-## 결론
-async/await는 최근 몇년간 JavaScript에 추가된 기능 중에 가장 혁명적인 기능 중에 하나이다. 이를 사용하다보면 promise가 가진 문법적인 번잡함을 대신할 직관적인 대체재라는 것을 깨닫게 될 것이다.
-
 <br/>
 
-## Async/await에 대한 우려
-async/await에 관한 몇가지 들어볼 만한 회의적인 시각도 있다.
-- 이것은 비동기 코드를 덜 분명하게 만든다: 당신의 눈은 callback이나 `.then` 을 봤을 때 비동기 코드로 인식하도록 학습되어있다. 당신이 눈이 새로운 표식을 인지하려면 몇 주가 걸릴 것이다. 그렇지만 async/await는 C#에서는 이미 몇년 전부터 있었던 기능이며 이에 친숙한 사람들에게는 이것이 사소하고일시적인 불편함으로 느껴질 수 있다.
-- Node 7은 LTS가 아직 릴리즈되지 않았다: 맞다. 그렇지만 node 8은 다음달에 출시될 것이다. 코드베이스를 새 버전으로 옮기는 것은 거의 노력이 들어가지 않는 수준이라고 할 수 있다. [업데이트]: Node 8 LTS도 현재 출시되었다.
-
-<br/>
+## Reference
+[자바스크립트의 Async/Await 가 Promises를 사라지게 만들 수 있는 6가지 이유](https://medium.com/@constell99/자바스크립트의-async-await-가-promises를-사라지게-만들-수-있는-6가지-이유-c5fe0add656c)
 
 ---
 
