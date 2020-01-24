@@ -1,11 +1,12 @@
-
 # Day4
+
 > 오늘의 강의: #3.0 ~ #3.4
 > 오늘의 과제: 위의 강의들을 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
 
 <br/>
 
 [[멤버십] 초보를 위한 React JS](https://academy.nomadcoders.co/courses/436641/lectures/8467057)
+
 - 3.0 CSS in React part One
 - 3.1 CSS in React part Two
 - 3.2 CSS in React part Three
@@ -20,12 +21,12 @@
 
 ## Lecture Summery
 
-
 <br/>
 
 ### CSS in React
 
 #### styles.css
+
 - styles.css 생성 후 index.js에서 import
 - 장점 : 사용방법이 쉬움
 - 단점 : 컴포넌트와 css 파일이 분리되어 있음
@@ -42,6 +43,7 @@ my-app
 <br/>
 
 #### 폴더에 정리
+
 - components폴더 안에 js 파일과 css 파일을 함께 생성하여 js 파일에서 import
 - 장점 : 파일이 한 폴더에 모여있어 찾기 쉬움.
 - 단점 : 사용할때마다 import 해줘야 함. className을 기억해서 반복되지 않도록 해야함.
@@ -59,14 +61,16 @@ my-app
             └── index.js
 ```
 
-<br/> 
+<br/>
 
 #### css모듈 사용
+
 - css가 global이 아닌 local이 되게 함.
 - 사용 : `<ul className={styles.navList}>`
 - 렌더시 랜덤한 className이 생성.
 - sass 사용시 node-sass 설
 - 단점 : 여전히 css모듈에서 사용된 className을 기억해야함.
+
 ```
 my-app
 └── src
@@ -74,15 +78,17 @@ my-app
     ├── Router.js
     └── Components
         └── Header
-            ├── Header.module.css 또는 Header.module.sass  
+            ├── Header.module.css 또는 Header.module.sass
             ├── Header.js    // import styles from "./Header.module.css";
             └── index.js
 ```
 
-<br/>  
+<br/>
 
 #### styled-components 사용
+
 - 설치
+
 ```
 yarn add styled-components
 ```
@@ -90,6 +96,7 @@ yarn add styled-components
 <br/>
 
 - 사용
+
 ```jsx harmony
 import React from "react";
 import { Link } from "react-router-dom";
@@ -124,6 +131,7 @@ export default () => (
   </Header>
 );
 ```
+
 <br/>
 
 - `styled-components` 을 사용해서 스타일링 할 수 있다.
@@ -138,7 +146,9 @@ export default () => (
 ### GlobalStyles and Header
 
 #### global 설정
+
 - 설치
+
 ```
 yarn add styled-reset
 ```
@@ -146,6 +156,7 @@ yarn add styled-reset
 <br/>
 
 - 사용
+
 ```
 my-app
 └── src
@@ -155,9 +166,10 @@ my-app
         ├── App.js
         ├── Header.js
         └── Router.js
-```   
+```
 
 `GlobalStyles.js`
+
 ```jsx harmony
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
@@ -182,12 +194,15 @@ const globalStyles = createGlobalStyle`
 
 export default globalStyles;
 ```
+
 <br/>
 
 ### Location Aware Header
-- withRouter를 이용하여 현재의 location정보를 이용   
+
+- withRouter를 이용하여 현재의 location정보를 이용
 
 `Header.js`
+
 ```jsx harmony
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
@@ -215,8 +230,8 @@ const Item = styled.li`
   width: 80px;
   height: 50px;
   text-align: center;
-  border-bottom: 3px solid
-    ${props => (props.current ? "#3498db" : "transparent")};
+  border-bottom: 3px solid ${props =>
+      props.current ? "#3498db" : "transparent"};
   transition: border-bottom 0.5s ease-in-out;
 `;
 
@@ -242,13 +257,14 @@ export default withRouter(({ location: { pathname } }) => (
     </List>
   </Header>
 ));
-
 ```
+
 <br/>
 
 <br/>
 
 ### Reference
+
 - [다양한 방식의 리액트 컴포넌트 스타일링 방식](https://velog.io/@velopert/react-component-styling)
 - [Sass 강좌 – 한 눈에 보기](https://velopert.com/1712)
 - [Sass 작성을 위한 주관적인 스타일가이드.](https://sass-guidelin.es/ko/)
@@ -259,67 +275,3 @@ export default withRouter(({ location: { pathname } }) => (
 ---
 
 <br/>
-
-## Homework 
-[Day4 템플릿](https://codesandbox.io/s/day-four-boilerplate-jxch9)
-
-![](./images/day4.gif)
-
-<br/>
-
-### Constraints
-- Use **'styled-components'** , **'styled-reset'** and **'createGlobalStyle'**
-- The header must be location aware and the links should reflect that.
-- **DO NOT** use **ANY .css** file or **'className'** attribute.
-
-<br/>
-
-### Submit
-
-`My Answer`
-[Day4 Answer](https://codesandbox.io/s/day-four-boilerplate-tddjh)
-
-`Header.js`
-```jsx harmony
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import styled from "styled-components";
-
-const Header = styled.header`
-  padding: 30px 0;
-`;
-
-const List = styled.ul`
-  display: flex;
-`;
-
-const Item = styled.li`
-  font-size: 15px;
-  font-weight: bold;
-  margin: 0 20px 0 0;
-  background: ${props => (props.current ? "#faa" : "#fff")};
-  color: ${props => (props.current ? "#fff" : "#000")};
-`;
-
-export default withRouter(({ location: { pathname } }) => (
-  <Header>
-    <List>
-      <Item current={pathname === "/"}>
-        <Link to="/">PRICES</Link>
-      </Item>
-      <Item current={pathname === "/exchanges"}>
-        <Link to="/exchanges">EXCHANGES</Link>
-      </Item>
-      <Item current={pathname === "/coins"}>
-        <Link to="/coins">COINS</Link>
-      </Item>
-    </List>
-  </Header>
-));
-
-```
-
-<br/>
-
-`correct`
-[Day4 Currect](https://codesandbox.io/s/day-four-solution-3j7gi)
