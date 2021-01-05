@@ -4,7 +4,7 @@
   "description": "Second clone coding for ReactJs with Challenges",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
